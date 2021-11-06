@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Charge</title>
+    <style>
+        body{
+            background: linear-gradient(to right, green 0%, lightgreen 100%);
+        }
+        img{
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+        }
+        .table{
+            border: solid lightgreen 5px;
+        }
+        a:link, a:visited{
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+    }
+    </style>
+</head>    
+<table class="table">
+    <tr>
+        <td>
+
+<body>
+    <h1>Meal Charge Calculation</h1>
+    Calculate total meal cost. Tax is 8.25% of the meal cost. Tip is 15% of the meal cost<br>
+    Total meal cost is equal to the meal cost plus the tax and plus the tip.
+    <form name="theform">
+        <table>
+
+            <tr>
+                <td></td>
+                <td>Enter meal cost:</td>
+                <td><input name="mealcost" size="10"><br></td>
+                
+            </tr>
+            <tr>
+                <td></td>
+                <td rowspan="6"><img src="meal.jpg" alt="picture of book"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td ></td>
+                <td>Meal Cost: </td>
+                <td style="background-color: white; color: black" size="10" id="mealcostfm" ></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Tax: (8.25%) </td>
+                <td style="background-color: white; color: black;" id="taxfm"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Tip: (15%) </td>
+                <td style="background-color: white; color: black;" id="tipfm"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Total: </td>
+                <td style="background-color: white; color: black;" id="totalfm"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="button" name="calc" value="Calculate" onclick="calculate();">
+                    <input type="button" name="clear" value="Clear" onclick="clearinfo();">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function calculate() {
+
+            const tax = .0825;
+            const tip = .15;
+
+            var mealcost1;
+            var mealcost2;
+            var tax2;
+            var tip2;
+            var total;
+
+            mealcost1 = parseFloat(document.theform.mealcost.value);
+            tax2 = parseFloat(tax * mealcost1);
+            tip2 = parseFloat(tip * mealcost1);
+            total = parseFloat(tax2 + tip2 + mealcost1)
+
+            document.getElementById('mealcostfm').innerHTML = "$ " + mealcost1.toFixed(2);
+            document.getElementById('taxfm').innerHTML = "$ " + tax2.toFixed(2);
+            document.getElementById('tipfm').innerHTML = "$ " + tip2.toFixed(2);
+            document.getElementById('totalfm').innerHTML = "$ " + total.toFixed(2);
+
+        }
+        function clearinfo() {
+            document.theform.mealcost.value = "";
+
+            document.getElementById("taxfm").innerHTML = " ";
+            document.getElementById("totalfm").innerHTML = " ";
+            document.getElementById("tipfm").innerHTML = " ";
+            document.getElementById("mealcostfm").innerHTML = " ";
+
+            document.theform.mealcost.focus();
+
+        }
+    </script>
+
+</body>
+</td>
+</tr>
+</table>
+<a href="http://csnet.southtexascollege.edu/localuser/egalva25/">Go Back to Homepage - Esau Galvan</a>
+
+</html>
